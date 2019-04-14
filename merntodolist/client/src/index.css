@@ -1,0 +1,11 @@
+body {
+  padding: 50px;
+  background-color: rgb(47, 9, 58);
+  font-family: Open Arial, Helvetica, sans-serif
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
