@@ -3,6 +3,14 @@
   font-size: 16px;
   border: 2px solid magenta;
   width: 500px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-family: 'Cairo', sans-serif;
+}
+
+::placeholder {
+  color:  rgb(83, 3, 3);
+  font-family: 'Cairo', sans-serif;
 }
 
 .todoListMain .header button {
@@ -13,6 +21,9 @@
   background-color: magenta;
   color: white;
   border: 2px solid magenta;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-family: 'Cairo', sans-serif;
 }
 
 .todoListMain .header button:hover {
@@ -28,7 +39,7 @@
   width: 250px;
 }
 
-.todoListMain .theList li {
+.todoListMain .theList tr {
   color: white;
   background-color: rgba(92, 17, 113, 0.509);
   padding: 15px;
@@ -38,51 +49,89 @@
   transition: background-color .2s ease-out;
 }
 
-.todoListMain .theList li:hover {
+.todoListMain .theList tr:hover {
   background-color: magenta;
   transform: scale(1.1);
   color: black;
   cursor: pointer;
 }
 
-ul .theList {
-  padding: 0;
+tbody .theList {
+ padding-left: -10px;
+  font-family: 'Indie Flower', cursive;
+ 
+
 }
 
 p {
   text-align: center;
   font-size: 30px;
+  
 }
 
-li .delete {
+.checked {
+  display:none;
+}
+
+tr  {
   list-style-type: none;
+  font-family: 'Indie Flower', cursive;
+  
 }
 
-
-
-
-
-
-label[type=checkbox]:checked + label.strikethrough{
-  text-decoration: line-through;
+tbody {
+  border: 10px solid  rgb(83, 3, 3);
 }
-
-/* .toggled:checked .strikethrough {
-	text-decoration: line-through;
-}
-input {
- text-decoration: none;
-} */
 
 input[type=checkbox]:checked + label.strikethrough {
   text-decoration: line-through;
+  color: #aaa;
+  font-family: 'Cairo', sans-serif;
+
+}
+.checks
+{
+  margin-right: -200px;
 }
 
-.cross[type=checkbox]:checked~ div {
-  display: none;
+label {
+  font-size: 30px;
+  color: rgb(83, 3, 3);
 }
 
+.border {
+  background-color: rgb(242, 185, 242);
+  margin-top: -30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 7px 28px 4px rgba(0,0,0,1);
+  -moz-box-shadow: 3px 7px 28px 4px rgba(0,0,0,1);
+  box-shadow:0px 3px 15px 0px rgb(15, 6, 15);
+}
 
-.hidden {
-  display: none;
+h1 {
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  text-shadow: -1px 0  rgb(83, 3, 3), 0 1px  rgb(83, 3, 3), 1px 0  rgb(83, 3, 3), 0 -1px  rgb(83, 3, 3);
+}
+
+h2 {
+  
+  text-align: center;
+  
+  font-size: 35px;
+
+  margin-top: -20px;
+  font-family: 'Shadows Into Light', cursive;
+  text-shadow: -1px 0  rgb(83, 3, 3), 0 1px  rgb(83, 3, 3), 1px 0  rgb(83, 3, 3), 0 -1px  rgb(83, 3, 3);
+  
+}
+
+body {
+  font-family: 'Pacifico', cursive;
+  font-family: 'Indie Flower', cursive;
+}
+
+.delete {
+  margin-right: 500px;
 }

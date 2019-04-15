@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./App.css";
 // importing the css for this file
 import {getList, addToList, deleteItem} from "./TodoFunctions";
+
+
 // import FlipMove from "react-flip-move";
 
 class TodoList extends Component {
@@ -14,8 +16,8 @@ class TodoList extends Component {
         this.state = {
             id: "",
             term: "",
-            checked: this.props.checked,
-            items: []
+            items: [],
+        
         };
         // setting the object of the initial state to have properties of an id as a string, term as a string, and the items array (I think aka the todos in the array that were changing)?
 
@@ -23,6 +25,8 @@ class TodoList extends Component {
         // this is binding the onSubmit function to the object of this?
         // we are binding the methods of this (object) and onSubmit (method)
         // you can use this or arrow functions? 
+
+       
 
         
     }
@@ -78,59 +82,58 @@ class TodoList extends Component {
         this.setState({items: [...data]});
     }
 
-    handleChange = (e) => {
-        const {checked} = e.target;
+    getInitialState = () => {
+        return {
+          condition: false
+        }
+    }
 
+    handleClick = () => {
         this.setState({
-        checked: !this.state.checked,
-        })
-    }
+          condition: !this.state.condition
+        });
+      }
+      
+ 
 
-    changeStatus = (checked) => {
-    const completed = 'todo-item ui-state-default ' + (checked.completed === true ? 'completed' : 'pending');
-    }
-
+  
  
 
     render() {
 
         return(
-
+            <div className="border">
             <div className="todoListMain">
-            <p>Keep Track of your next Todo List with Ease!</p>
+            <h1>Things To Do</h1>
+            <h2>Keep Track of your next todo list here!</h2>
             <div className="header">
             <form>
                 <input placeholder="Enter a new Todo" value={this.state.term || ""}
             onChange={this.onChange.bind(this)}></input>
                 <button  onClick={this.onSubmit.bind(this)} type="submit">New Todo</button>
             </form>
-            <ol className="content">
-            <ul> 
+
+
+
+            <table className="content">
+            <tbody> 
                 {this.state.items.map((item, index) => (
-                    <li key={index}>
-                    <div className="checkbox"> 
-                    <input type="checkbox"/>
-                    <label className="strikethrough" checked={this.state.checked} onChange={this.handleChange.bind(this)}>{item[0]}</label>
-                    
-                    <li className="delete">
+                    <tr key={index}>
+                   <input className="checks" type="checkbox"/> 
+                   <label className="strikethrough">{item[0]}</label>
+                     
                     <button className="delete"
                     href=""
                     onClick={this.onDelete.bind(this, item[1])}> 
-                    Delete</button>
-                    </li> 
-                    </div>
-                    
-                      
-               </li>
+                    Delete</button>   
+               </tr>
                 ))}
-            </ul> 
-           
-            <button onClick={this.changeStatus}>Show Completed</button>
-            <button>Show Active</button>
-            <button>Delete All Completed</button>
-            </ol>
+            </tbody> 
+            </table>
         </div>
      </div>
+     </div>
+
   
         );
     }
