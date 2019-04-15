@@ -6,16 +6,12 @@
   border-radius: 5px;
   margin-left: 20px;
   font-family: 'Cairo', sans-serif;
-
 }
 
 .input {
   display: flex;
   flex-direction: row;
-  
 }
-
-
 
 .deletebtn {
   padding: 10px;
@@ -30,8 +26,6 @@
   margin-left: 10px;
   margin-right: 10px;
 }
-
-
 
 .deletebtn:hover {
   border: 2px solid magenta;
@@ -84,7 +78,6 @@
   margin-bottom: 15px;
   border-radius: 5px;
   list-style: none;
-  
 }
 
 .todoList .theList tr:hover {
@@ -95,41 +88,32 @@
 
 tbody .theList {
   font-family: 'Indie Flower', cursive;
- 
-
 }
 
 p {
   text-align: center;
   font-size: 30px;
-  
 }
 
 .checked {
   display:none;
 }
 
-tr  {
+tr {
   list-style-type: none;
   font-family: 'Indie Flower', cursive;
-  
-  
 }
 
 tbody {
   border: 10px solid  rgb(83, 3, 3);
-
 }
 
 input[type=checkbox]:checked + label.strikethrough {
   text-decoration: line-through;
   color: #aaa;
- 
- 
-
 }
-.todos
-{
+
+.todos{
   margin-right: -220px;
 }
 
@@ -165,11 +149,7 @@ h2 {
   font-size: 27px;
   margin-top: -20px;
   font-family: 'Courgette', cursive;
-
-  
 }
-
-
 
 body {
   font-family: 'Pacifico', cursive;

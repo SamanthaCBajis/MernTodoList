@@ -1,14 +1,17 @@
 const express = require("express");
 // requiring express module for routes.js
+
 const routes = express.Router();
 // creating the express Router so functions can be routed and used in other files
+
 const mongojs = require("mongojs");
 // requiring the mongo database to store these functions and outputs in for application
+
 const db = mongojs(
     "todolist",
     ["todos"]
 );
-// I think what information is being stored in the mongodb, what the database is expecting to have stored and what data can be manipulated
+// What information is being stored in the mongodb, what the database is expecting to have stored and what data can be manipulated
 
 
 routes.get("/todos", (req, res) => {
@@ -16,8 +19,6 @@ routes.get("/todos", (req, res) => {
         if(err){
             res.send(err);
         }
-// to get all the tasks from the database - connecting the database to the server (tasks what connects the server and routes) to find the id and title of the todo then send that data
-
 
         let data = [];
         Object.keys(todos).forEach((key) => {
@@ -27,6 +28,7 @@ routes.get("/todos", (req, res) => {
         res.send(data);
     });
 });
+// to get all the tasks from the database - connecting the database to the server (tasks what connects the server and routes) to find the id and title of the todo then send that data
 // taking the data from the array and returning the array of string elements once (foreach) using Object.keys to the tasks (routes.js then server) 
 // key could be the values of just the id and title for that single todo
 // the value of the title and id of that todo is then pushed back into the array and that data is resent
@@ -48,7 +50,7 @@ routes.post("/todo", (req, res) => {
         });
     }
 });
-// adding a task from /task URL and having task variable equal to req.body, so if the req.body does not have the title passed to it then send an error or save that task(todo) from the database and send it as json data to be used through the Restful api in the application
+// adding a todo from /todo URL and having task variable equal to req.body, so if the req.body does not have the title passed to it then send an error or save that todo from the database and send it as json data to be used through the Restful api in the application
 
 
 routes.delete("/todo/:id", (req, res) => {
@@ -59,7 +61,7 @@ routes.delete("/todo/:id", (req, res) => {
             res.json(todo);
     });
 });
-// delete a todo by connecting to the server through tasks and removing by the id. from the db through tasks(routes.js to server) remove the id from the mongo db. req.params.id used to connect id to the restful api and bu fully deleted sending that data back as json data
+// delete a todo by connecting to the server through tasks and removing by the id. from the db through tasks(routes.js to server.js) remove the id from the mongodb. req.params.id used to connect id to the restful api and bu fully deleted sending that data back as json data
 
 
 routes.put("/todo/:id", (req, res) => {
@@ -87,6 +89,6 @@ routes.put("/todo/:id", (req, res) => {
         });
     }
 });
-//updating tasks through task url back to the server? updating by todos id, updating the req.body of the task and letting updTask equal the new array, making the new task and title euqal and if the infromation is not the new updTask then send an error and if it IS then send that updated todo from the db throgh the routes.js to server and update the id in mongo by the req.params.id so it is in the restful api and the information can be sent back as json data to application
+//updating todos through todo url back to the server updating by todos id, updating the req.body of the task and letting updTask equal the new array, making the new todo and title euqal and if the information is not the new updTodo then send an error and if it IS then send that updated todo from the db throgh the routes.js to server and update the id in mongo by the req.params.id so it is in the restful api and the information can be sent back as json data to application
 
 module.exports = routes;

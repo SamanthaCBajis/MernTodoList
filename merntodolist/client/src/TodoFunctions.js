@@ -50,6 +50,6 @@ export const updateItem = (term,id) => {
         console.log(res)
     })
 }
-// update
+// update to update any data that is currently in the database
 
 

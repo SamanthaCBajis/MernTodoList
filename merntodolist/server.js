@@ -1,7 +1,9 @@
 const express = require("express");
 // requires express module from node modules
+
 const path = require("path");
 //requires path module from node modules - think path-dirname because use it later
+
 const bodyParser = require("body-parser");
 // requires body-parser module from node modules
 
@@ -27,9 +29,11 @@ app.use(
 
 app.set("views", path.join(__dirname, "views"));
 // setting views as aconfiguration variable that sets the folder from which express wil grab the templates and joining path and dirname modules with views
+
 app.set("view engine", "ejs");
 // ejs is embedded javascript templates that lets you generate HTML markup with plain JS - pretty much just plain JS and this is setting the view engine to ejs
 // to I guess make it so the JS that is written is embedded to work
+
 app.engine("html", require("ejs").renderFile);
 // connnecting express to the engine and making the view in HTML requiring ejs to connect JS
 
@@ -38,6 +42,7 @@ app.use(express.static(path.join(__dirname, "client")));
 
 app.use(bodyParser.json());
 // express and use module connecting to body-parser which needs to have the requests made to the body in json format to be connected to the database
+
 app.use(bodyParser.urlencoded({extended: false}));
 // telling the bodyParser to use classic encoding so the values can only be string and arrays when the data is returned
 
