@@ -2,10 +2,8 @@ import React, { Component } from "react";
 //  importing React
 import "./App.css";
 // importing the css for this file
-import {getList, addToList, deleteItem} from "./TodoFunctions";
+import {getTodoList, addTodo, deleteTodo} from "./TodoFunctions";
 
-
-// import FlipMove from "react-flip-move";
 
 class TodoList extends Component {
     // defining the component TodoList
@@ -25,9 +23,6 @@ class TodoList extends Component {
         // this is binding the onSubmit function to the object of this?
         // we are binding the methods of this (object) and onSubmit (method)
         // you can use this or arrow functions? 
-
-       
-
         
     }
 
@@ -36,7 +31,7 @@ class TodoList extends Component {
         // it exectutes before rendering BOTH on the server and client side
         // executed after the first render only on the client side
         // where the state updates should occur and I think the state is changed after some type of method is called
-        this.getAll();
+        this.getData();
         // getAll holds all of the data from the db to have the states change from these methods we are using in this script
     }
 
@@ -46,8 +41,8 @@ class TodoList extends Component {
     // this method is an event that is triggered when an event is fired by every element that has a value property
     // it is used for the input right now - down there it is binding the onChange method to the this object that the input is creating this.state.term which the state change is presented here
 
-    getAll = () => {
-        getList().then(data => {
+    getData = () => {
+        getTodoList().then(data => {
             this.setState({
                 term: "",
                 items: [...data],
@@ -62,8 +57,8 @@ class TodoList extends Component {
 
     onSubmit = event => {
         event.preventDefault();
-        addToList(this.state.term).then(() => {
-            this.getAll();
+        addTodo(this.state.term).then(() => {
+            this.getData();
         })
     }
     // event.preventDefault(); is preventing the browsers default behavior -  so im not sure if its preventing the default behavior of a button while not having this functionality binded to it?
@@ -71,61 +66,46 @@ class TodoList extends Component {
 
     onDelete = (val, event) => {
         event.preventDefault();
-        deleteItem(val);
+        deleteTodo(val);
 
         var data = [...this.state.items];
         data.filter(function(item, index) {
             if(item[1] === val){
                 data.splice(index, 1);
+               return true;
+            }else{
+                return false;
             }
         });
         this.setState({items: [...data]});
     }
 
-    getInitialState = () => {
-        return {
-          condition: false
-        }
-    }
-
-    handleClick = () => {
-        this.setState({
-          condition: !this.state.condition
-        });
-      }
-      
- 
-
-  
- 
-
     render() {
 
         return(
-            <div className="border">
-            <div className="todoListMain">
+            <div className="notepad">
+            <div className="todoList">
             <h1>Things To Do</h1>
             <h2>Keep Track of your next todo list here!</h2>
             <div className="header">
             <form>
-                <input placeholder="Enter a new Todo" value={this.state.term || ""}
+                <input placeholder="Enter a new todo" value={this.state.term || ""}
             onChange={this.onChange.bind(this)}></input>
-                <button  onClick={this.onSubmit.bind(this)} type="submit">New Todo</button>
+                <button className="submitbtn"  onClick={this.onSubmit.bind(this)} type="submit">New Todo</button>
             </form>
-
-
-
-            <table className="content">
+            <table>
             <tbody> 
                 {this.state.items.map((item, index) => (
                     <tr key={index}>
-                   <input className="checks" type="checkbox"/> 
+                   <td><input className="todos" type="checkbox"/> 
                    <label className="strikethrough">{item[0]}</label>
-                     
-                    <button className="delete"
+                    </td>   
+                    <td className="delsize">
+                    <button className="deletebtn"
                     href=""
                     onClick={this.onDelete.bind(this, item[1])}> 
-                    Delete</button>   
+                    Delete</button>
+                    </td>
                </tr>
                 ))}
             </tbody> 
@@ -133,7 +113,6 @@ class TodoList extends Component {
         </div>
      </div>
      </div>
-
   
         );
     }

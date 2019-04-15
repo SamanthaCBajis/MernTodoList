@@ -11,4 +11,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 
-// Where App.js is imported as well as css to be shown in index.html
+// Where App.js is imported to be used in index.html

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import TodoList from "./TodoList";
 import "./index.css";
-import TodoList from "./TodoList"
 
 class App extends Component {
   render() {
@@ -14,6 +14,8 @@ class App extends Component {
 
 export default App;
 
-// where the css and TodoList components are connected
-// container is for the css that has the container properties for the app
-//Todolist component is under it and added into App file which is added to index.js and then showed in index.html from everything being connected to index.js
+// Where index.css and TodoList.js components are imported
+
+// Container holds css from originalin that has the container properties for the app
+
+//Todolist.js component imported/used in App.js which is imported/used to index.js which is used in index.html

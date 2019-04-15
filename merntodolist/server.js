@@ -5,13 +5,13 @@ const path = require("path");
 const bodyParser = require("body-parser");
 // requires body-parser module from node modules
 
-const tasks = require("./routes/routes");
+const todos = require("./routes/routes.js");
 // requiring from the routes folder then to routes file to connect it to this file
 
 const cors = require("cors");
 // require cors module from node modules
 
-const port = 5000;
+const port = 8080;
 // making port number for server to run on
 
 const app = express();
@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 // telling the bodyParser to use classic encoding so the values can only be string and arrays when the data is returned
 
 
-app.use("/api", tasks);
+app.use("/api", todos);
 // express and use modules connecting to tasks which is is the routes folder and routes file so code can be connected to the Restful API
 
 app.listen(port, function() {

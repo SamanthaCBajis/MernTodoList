@@ -1,11 +1,40 @@
-.todoListMain .header input {
+.todoList .header input {
   padding: 10px;
   font-size: 16px;
   border: 2px solid magenta;
-  width: 500px;
+  width: 400px;
   border-radius: 5px;
-  margin-left: 10px;
+  margin-left: 20px;
   font-family: 'Cairo', sans-serif;
+
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+
+
+.deletebtn {
+  padding: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 16px;
+  background-color: magenta;
+  color: white;
+  border: 2px solid magenta;
+  border-radius: 5px;
+  font-family: 'Cairo', sans-serif;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+
+.deletebtn:hover {
+  border: 2px solid magenta;
 }
 
 ::placeholder {
@@ -13,51 +42,58 @@
   font-family: 'Cairo', sans-serif;
 }
 
-.todoListMain .header button {
+.submitbtn {
   padding: 10px;
   font-size: 16px;
-  margin: 10px;
-  margin-right: 0px;
   background-color: magenta;
   color: white;
   border: 2px solid magenta;
-  margin-right: 10px;
   border-radius: 5px;
   font-family: 'Cairo', sans-serif;
 }
 
-.todoListMain .header button:hover {
+.todoList .header .submitbtn {
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px;
+  background-color: magenta;
+  color: white;
+  border: 2px solid magenta;
+  margin-right: 15px;
+  border-radius: 5px;
+  font-family: 'Cairo', sans-serif;
+}
+
+.todoList .header button:hover {
   background-color: white;
-  border: 2px solid white;
   color: magenta;
   cursor: pointer;
 }
 
-.todoListMain .theList {
+.todoList .theList {
   list-style: none;
   padding-left: 0;
   width: 250px;
+  word-wrap: break-word;
 }
 
-.todoListMain .theList tr {
+.todoList .theList tr {
   color: white;
   background-color: rgba(92, 17, 113, 0.509);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
   list-style: none;
-  transition: background-color .2s ease-out;
+  
 }
 
-.todoListMain .theList tr:hover {
+.todoList .theList tr:hover {
   background-color: magenta;
-  transform: scale(1.1);
   color: black;
   cursor: pointer;
 }
 
 tbody .theList {
- padding-left: -10px;
   font-family: 'Indie Flower', cursive;
  
 
@@ -77,29 +113,33 @@ tr  {
   list-style-type: none;
   font-family: 'Indie Flower', cursive;
   
+  
 }
 
 tbody {
   border: 10px solid  rgb(83, 3, 3);
+
 }
 
 input[type=checkbox]:checked + label.strikethrough {
   text-decoration: line-through;
   color: #aaa;
-  font-family: 'Cairo', sans-serif;
+ 
+ 
 
 }
-.checks
+.todos
 {
-  margin-right: -200px;
+  margin-right: -220px;
 }
 
 label {
   font-size: 30px;
   color: rgb(83, 3, 3);
+ 
 }
 
-.border {
+.notepad {
   background-color: rgb(242, 185, 242);
   margin-top: -30px;
   border-radius: 10px;
@@ -109,29 +149,33 @@ label {
 }
 
 h1 {
+  color:  rgb(83, 3, 3);
+  border-bottom: 2px solid white;
+  padding-bottom: 5px;
   text-align: center;
   font-family: 'Pacifico', cursive;
   font-size: 40px;
-  text-shadow: -1px 0  rgb(83, 3, 3), 0 1px  rgb(83, 3, 3), 1px 0  rgb(83, 3, 3), 0 -1px  rgb(83, 3, 3);
+  margin-top: -5px;
+ 
 }
 
 h2 {
-  
+  color:  rgb(83, 3, 3);
   text-align: center;
-  
-  font-size: 35px;
-
+  font-size: 27px;
   margin-top: -20px;
-  font-family: 'Shadows Into Light', cursive;
-  text-shadow: -1px 0  rgb(83, 3, 3), 0 1px  rgb(83, 3, 3), 1px 0  rgb(83, 3, 3), 0 -1px  rgb(83, 3, 3);
+  font-family: 'Courgette', cursive;
+
   
 }
+
+
 
 body {
   font-family: 'Pacifico', cursive;
   font-family: 'Indie Flower', cursive;
+  font-family: 'Courgette', cursive;
 }
 
-.delete {
-  margin-right: 500px;
-}
+
+
